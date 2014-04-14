@@ -1,3 +1,14 @@
 <% @cards.each do |card| %>
-  <%= card.front %> <br>
+  <div class="<%= dom_id card %>">
+    <div class="front-<%= dom_id card %>">
+      <%= card.front %>
+    </div>
+    <div class="back-<%= dom_id card %>" style="display:none">
+      <%= card.back %>
+    </div>
+  </div>
 <% end %>
+
+<%= button_tag "Flip" %>
+<%= button_tag "Previous" %>
+<%= button_tag "Next" %>
