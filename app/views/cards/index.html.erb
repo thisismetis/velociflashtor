@@ -1,14 +1,4 @@
 <% @cards.each do |card| %>
-<<<<<<< HEAD
-  <div class="<%= dom_id card %>">
-    <div class="front-<%= dom_id card %>">
-      <%= card.front %>
-    </div>
-    <div class="back-<%= dom_id card %>" style="display:none">
-      <%= card.back %>
-    </div>
-  </div>
-=======
   <%= div_for card do %>
     <div class="<%= dom_id card, 'front' %>">
       <%= card.front %>
@@ -17,7 +7,6 @@
       <%= card.back %>
     </div>
   <% end %>
->>>>>>> Initial Commit
 <% end %>
 
 <%= button_tag "Flip" %>
