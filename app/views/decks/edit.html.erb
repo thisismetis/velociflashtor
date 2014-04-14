@@ -1,0 +1,8 @@
+Edit Decks
+<%= form_for @deck do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  Tags: 
+  <%= text_field_tag "Tags" %><br>
+  <%= f.submit "Update" %>
+<% end %>
