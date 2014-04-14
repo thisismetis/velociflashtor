@@ -12,6 +12,10 @@ class DecksController < ApplicationController
     @deck = find_deck
   end
 
+  def edit
+    @deck = find_deck
+  end
+
   private
 
   def deck_params
@@ -19,6 +23,6 @@ class DecksController < ApplicationController
   end
 
   def find_deck
-    Deck.find(params[:id])
+    current_user.decks.find(params[:id])
   end
 end
