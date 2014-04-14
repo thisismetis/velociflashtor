@@ -7,6 +7,7 @@ class CardsController < ApplicationController
   def create
     deck = find_deck
     deck.cards.create(card_params)
+
     if finished?
       redirect_to deck_path(deck)
     else
@@ -20,7 +21,7 @@ class CardsController < ApplicationController
   end
 
   private
- 
+
   def find_deck
     current_user.decks.find(params[:deck_id])
   end
