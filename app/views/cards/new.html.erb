@@ -1,0 +1,9 @@
+New Card
+<%= form_for [@deck, @card] do |f| %>
+  <%= f.text_field :front, placeholder: "Front" %> <br>
+  <%= f.text_area :back, placeholder: "Back" %> <br>
+  ` Add image function goes here <br>
+  <%= f.submit "Add Next Card", data: {finished: false}  %>
+  <%= f.submit "Finished", data: {finished: true}  %>
+  
+<% end %>
