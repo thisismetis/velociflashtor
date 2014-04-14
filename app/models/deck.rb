@@ -1,8 +1,5 @@
 class Deck < ActiveRecord::Base
   belongs_to :user
-  has_many :cards
+  has_many :cards, dependent: :destroy
 
-  def get_cards
-    card_collection = cards.shuffle
-  end
 end

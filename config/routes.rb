@@ -4,7 +4,7 @@ Velociflashtor::Application.routes.draw do
     root to: 'dashboards#show', as: :signed_in_root
   end
 
-  root "homes#show"
+  root 'homes#show'
 
   resource :dashboards, only: [:show]
   resources :decks, except: [:index] do

@@ -16,12 +16,13 @@ class CardsController < ApplicationController
 
   def index
     deck = find_deck
-    @cards = deck.get_cards
+    @cards = deck.cards.order('RANDOM()')
   end
 
   private
+ 
   def find_deck
-    Deck.find(params[:deck_id])
+    current_user.decks.find(params[:deck_id])
   end
 
   def card_params
@@ -29,10 +30,6 @@ class CardsController < ApplicationController
   end
 
   def finished?
-    if params[:commit] == "Finished"
-      true
-    else
-      false
-    end
+    params[:commit] == 'Finished'
   end
 end
