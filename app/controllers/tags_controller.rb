@@ -10,5 +10,4 @@ class TagsController < ApplicationController
   def find_tag
     Tag.find(params[:id])
   end
-
 end
