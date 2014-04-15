@@ -2,7 +2,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = find_tag
-    @decks = @tag.decks(deck: [:user])
+    @decks = @tag.decks
   end
 
   private
