@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'clearance'
+gem 'google-search'
 
 group :doc do
   gem 'sdoc', require: false

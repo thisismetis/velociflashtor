@@ -1,4 +1,5 @@
 class DecksController < ApplicationController
+
   def new
     @deck = Deck.new
   end
