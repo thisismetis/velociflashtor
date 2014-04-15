@@ -5,13 +5,19 @@ class CardsController < ApplicationController
   end
 
   def create
-    deck = find_deck
-    deck.cards.create(card_params)
 
-    if finished?
-      redirect_to deck_path(deck)
+    if add_images?
+      @images = GoogleSearch.google_search(image_search_params)
+      render :new
     else
-      redirect_to new_deck_card_path(deck)
+      deck = find_deck
+      deck.cards.create(card_params)
+
+      if finished?
+        @location = deck_path(deck)
+      else
+        @location = new_deck_card_path(deck)
+      end
     end
   end
 
@@ -32,5 +38,13 @@ class CardsController < ApplicationController
 
   def finished?
     params[:commit] == 'Finished'
+  end
+
+  def add_images?
+    params[:commit] == 'Add Images'
+  end
+
+  def image_search_params
+    params[:card][:front]
   end
 end
