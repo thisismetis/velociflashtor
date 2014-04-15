@@ -1,9 +1,7 @@
 var images = [];
 <% @images.each_with_index do |image, i| %>
   var template = '';
-  <% template = content_tag(:div, class: "image_#{i}") do %>
-    <% image_tag image, size: "75x75" %>
-  <% end %>
+  <% template = content_tag(:div, image_tag(image, size: "75x75"), class: "image_#{i}") %>
   <% template += radio_button("card", :image_url, image) %>
   template = '<%= template %>';
   images.push(template);

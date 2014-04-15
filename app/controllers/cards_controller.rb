@@ -12,12 +12,7 @@ class CardsController < ApplicationController
     else
       deck = find_deck
       deck.cards.create(card_params)
-
-      if finished?
-        @location = deck_path(deck)
-      else
-        @location = new_deck_card_path(deck)
-      end
+      @location = next_location_for(deck)
     end
   end
 
@@ -46,5 +41,13 @@ class CardsController < ApplicationController
 
   def image_search_params
     params[:card][:front]
+  end
+
+  def next_location_for(deck)
+    if finished?
+      deck_path(deck)
+    else
+      new_deck_card_path(deck)
+    end
   end
 end
