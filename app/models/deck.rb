@@ -5,7 +5,7 @@ class Deck < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   def tag_list
-    tags.pluck(:name).join(", ")
+    tags.pluck(:name).join(', ')
   end
 
   def tag_list=(tag_string)
