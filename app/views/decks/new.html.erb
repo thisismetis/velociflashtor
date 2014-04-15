@@ -1,8 +1,8 @@
 <%= form_for @deck do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
-  Tags: 
-  <%= text_field_tag "Tags" %><br>
+  <%= f.label :tags %>
+  <%= f.text_field :tag_list %><br>
   <%= f.submit "Add Cards" %>
 <% end %>
 Step 1/3

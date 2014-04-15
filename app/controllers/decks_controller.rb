@@ -20,7 +20,7 @@ class DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:name)
+    params.require(:deck).permit(:name, :tag_list)
   end
 
   def find_deck
