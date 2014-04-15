@@ -1,14 +1,14 @@
-<% @cards.each do |card| %>
-  <%= div_for card do %>
-    <div class="<%= dom_id card, 'front' %>">
-      <%= card.front %>
+<% @cards.each_with_index do |card, index| %>
+  <%= div_for card, style: "display: none", data: { index: index } do %>
+    <div class="front" style="display: none">
+      <p> <%= card.front %></p>
     </div>
-    <div class="<%= dom_id card, 'back'  %>" style="display:none">
-      <%= card.back %>
+    <div class="back" style="display: none">
+      <p><%= card.back %></p>
     </div>
   <% end %>
 <% end %>
 
-<%= button_tag "Flip" %>
-<%= button_tag "Previous" %>
-<%= button_tag "Next" %>
+<button id="previous-button">Previous</button>
+<button id="flip-button">Flip</button>
+<button id="next-button">Next</button>

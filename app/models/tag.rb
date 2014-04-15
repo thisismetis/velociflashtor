@@ -7,5 +7,4 @@ class Tag < ActiveRecord::Base
       find_or_create_by(name: tag_name.strip.downcase)
     end
   end
-
 end

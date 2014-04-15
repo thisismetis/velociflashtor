@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   def create
 
     if add_images?
-      @images = GoogleSearch.google_search(image_search_params)
+      @images = GoogleSearch.new(image_search_params).images
       render :new
     else
       deck = find_deck
