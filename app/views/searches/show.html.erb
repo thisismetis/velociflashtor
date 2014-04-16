@@ -1,0 +1,7 @@
+Your search for <%= @query %> returned the following results:
+
+<div>
+  <% @decks.each do |deck| %>
+    <%= link_to deck.name, deck %>
+  <% end %>
+</div>
