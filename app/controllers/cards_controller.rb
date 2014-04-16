@@ -18,7 +18,7 @@ class CardsController < ApplicationController
 
   def index
     @deck = find_deck
-    @cards = @deck.cards.order('RANDOM()')
+    @cards = @deck.cards.shuffle
   end
 
   private
