@@ -11,10 +11,12 @@
         <li class="navigation-search-bar">
           <div class="search-bar">
             <div class="search-and-submit">
-              <input type="search" placeholder="Enter Search" />
-              <button type="submit">
-                <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png">
-              </button>
+              <%= form_for(:search, url: search_path, method: :get) do |form| %>
+                <%= form.text_field :query, placeholder: "Search Here" %>
+                <button type="submit">
+                  <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png">
+                </button>
+              <% end %>
             </div>
           </div>
         </li>
