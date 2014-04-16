@@ -1,8 +1,13 @@
 class Deck < ActiveRecord::Base
+
   belongs_to :user
   has_many :cards, dependent: :destroy
   has_many :taggings
   has_many :tags, through: :taggings
+
+  def self.shuffle
+    order('RANDOM()')
+  end
 
   def tag_list
     tags.pluck(:name).join(', ')
