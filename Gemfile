@@ -10,6 +10,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'clearance'
 gem 'google-search'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
 
 group :doc do
   gem 'sdoc', require: false

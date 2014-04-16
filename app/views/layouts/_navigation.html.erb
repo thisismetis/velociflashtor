@@ -1,0 +1,49 @@
+<header class="navigation">
+  <div class="menu-wrapper">
+    <a href="javascript:void(0)" class="logo">
+      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
+    </a>
+    <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li><a href="javascript:void(0)">About Us</a></li>
+        <li><a href="javascript:void(0)">Contact</a></li>
+        <li class="navigation-search-bar">
+          <div class="search-bar">
+            <div class="search-and-submit">
+              <input type="search" placeholder="Enter Search" />
+              <button type="submit">
+                <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="sign-up">
+          <% if signed_in? %>
+            Signed in as: <%= current_user.email %>
+            <%= link_to 'Sign out', sign_out_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Sign in', sign_in_path %>
+            <%= link_to 'Sign up', sign_up_path %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  $(function() {
+    var menu = $('#navigation-menu');
+    var menuToggle = $('#js-mobile-menu');
+
+    $(menuToggle).on('click', function(e) {
+      e.preventDefault();
+      menu.slideToggle(function(){
+        if(menu.is(':hidden')) {
+          menu.removeAttr('style');
+        }
+      });
+    });
+  });
+</script>
