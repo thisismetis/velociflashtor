@@ -1,10 +1,15 @@
 class GoogleSearch
 
-  def self.google_search(query, num = 3)
-    google_search = Google::Search::Image.new(query: query)
+  def initialize(query, num = 3)
+    @query = query
+    @num = num
+  end
+
+  def images
+    google_search = Google::Search::Image.new(query: @query)
     results = google_search.response
     images = results.map(&:uri)
-    images[0..(num - 1)]
+    images.take(@num)
   end
 
 end
