@@ -5,7 +5,7 @@ class TagSearcher
   end
 
   def tags
-    Tag.where("name ILIKE ?", "%#{query}%")
+    Tag.where('name ILIKE ?', '%#{query}%')
   end
 
   private
