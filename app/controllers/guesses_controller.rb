@@ -1,14 +1,19 @@
 class GuessesController < ApplicationController
   def show
     @num_guesses = num_guesses
-    @card = find_card
+    @card = find_current_card
     guess_checker = GuessChecker.new(card: @card, guess: guess)
     guess_result = guess_checker.correct_guess?
+    current_user.update_guess_metrics(guess_result)
+    @card.update_guess_metrics(guess_result)
     guess_location(guess_result, @num_guesses)
   end
 
   def create
-    @card = find_card
+    current_card = find_current_card
+    current_card.update_attempts
+    current_user.update_attempts
+    @card = find_next_card
   end
 
   private
@@ -17,8 +22,13 @@ class GuessesController < ApplicationController
     params[:guess][:guess]
   end
 
-  def find_card
-    card_id = params[:guess][:card_id].to_i
+  def find_current_card
+    card_id = params[:guess][:current_card]
+    Card.find(card_id)
+  end
+
+  def find_next_card
+    card_id = params[:guess][:next_card].to_i
     if card_id == 0
       deck_id = params[:guess][:deck_id].to_i
       @deck = Deck.find(deck_id)
