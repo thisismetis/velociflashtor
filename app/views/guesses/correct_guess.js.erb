@@ -3,3 +3,4 @@ index += 1;
 $('#card_answer').html('You are correct! The answer was <%= @card.back %>.');
 $('#guess_field').html('<%=j render 'next_card_button' %>');
 $('#guess_card_id').prop('value',card_ids[index]);
+$('#guess_deck_id').prop('value', deck_id);

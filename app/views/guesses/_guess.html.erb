@@ -1,10 +1,10 @@
-<%= render @card %>
-<%= @card.back %>
-<%= content_tag :div, nil, id: "card_answer" %>
+<%= render card %>
+<%= card.back %>
+<%= content_tag :div, nil, id: 'card_answer' %>
   <%= content_tag(:div, id: 'guess_field') do %>
     <%= form_for :guess, url: guess_url, method: :get, remote: true do |f| %>
     <%= f.text_field :guess, placeholder: "Enter Guess" %>
-    <%= f.hidden_field :num_guesses, value: @num_guesses %>
-    <%= f.hidden_field :card_id, value: @card.id %>
+    <%= f.hidden_field :num_guesses, value: num_guesses %>
+    <%= f.hidden_field :card_id, value: card.id %>
   <% end %>
 <% end %>
