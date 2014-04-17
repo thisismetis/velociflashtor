@@ -9,6 +9,8 @@ Velociflashtor::Application.routes.draw do
   resource :dashboards, only: [:show]
   resources :decks, except: [:index] do
     resources :cards, only: [:new, :create, :index]
-    resource :test, only: [:show]
+    resource :test, only: [:show, :create]
   end
+
+  resource :guess, only: [:show, :create]
 end

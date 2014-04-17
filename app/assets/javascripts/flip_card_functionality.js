@@ -1,3 +1,4 @@
+var max = max || null;
 var index = 0;
 $(document).ready(function(){
   show_card(index);

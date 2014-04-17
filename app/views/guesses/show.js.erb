@@ -1,0 +1,5 @@
+console.log('Guess Show');
+$('#test_guess').val('');
+$('#test_num_guesses').prop('value', '<%= @num_guesses %>');
+
+$('#card_answer').html('Incorrect, please try again.  You have <%= 3 - @num_guesses %> guesses remaining');
