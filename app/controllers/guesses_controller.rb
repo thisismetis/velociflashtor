@@ -15,7 +15,7 @@ class GuessesController < ApplicationController
     @card = find_card
     @num_guesses = 0
   end
-  
+
   private
 
   def guess
