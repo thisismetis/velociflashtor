@@ -15,6 +15,12 @@ class DecksController < ApplicationController
 
   def edit
     @deck = find_deck
+    @cards = @deck.cards
+  end
+
+  def update
+    @deck = find_deck
+    @deck.update(deck_params)
   end
 
   private

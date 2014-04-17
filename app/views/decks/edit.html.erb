@@ -1,8 +1,14 @@
 Edit Decks
-<%= form_for @deck do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  Tags: 
-  <%= text_field_tag "Tags" %><br>
-  <%= f.submit "Update" %>
-<% end %>
+
+<div class="deck-edit">
+  <%= render "deck_edit" %>
+</div>
+
+<div class="card-stack">
+  <%= render "card_stack" %>
+</div>
+
+<div class="edit-card">
+</div>
+
+<%= button_to "Done Editing", @deck, method: :get %>

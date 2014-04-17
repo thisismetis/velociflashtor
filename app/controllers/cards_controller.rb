@@ -21,6 +21,14 @@ class CardsController < ApplicationController
     @cards = @deck.cards.shuffle
   end
 
+  def edit
+    @card = find_card
+  end
+
+  def update
+    @card = find_card
+    @card.update(card_params)
+  end
   private
 
   def card_params
@@ -33,6 +41,10 @@ class CardsController < ApplicationController
 
   def add_images?
     params[:commit] == 'Add Images'
+  end
+
+  def find_card
+    Card.find(params[:id])
   end
 
   def image_search_params

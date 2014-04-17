@@ -1,0 +1,10 @@
+<div class="scroll-selection">
+  <% @cards.each_with_index do |card, index| %>
+    <%= div_for card, data: { index: index } do %>
+      <div class="front">
+        <p> <%= link_to "#{card.front}", edit_card_path(card), remote: true %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
