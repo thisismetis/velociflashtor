@@ -23,10 +23,6 @@ class CardsController < ApplicationController
 
   private
 
-  def find_deck
-    current_user.decks.find(params[:deck_id])
-  end
-
   def card_params
     params.require(:card).permit(:front, :back, :image_url)
   end
