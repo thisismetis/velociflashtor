@@ -9,5 +9,4 @@ class ApplicationController < ActionController::Base
   def find_deck
     Deck.find(params[:deck_id])
   end
-
 end

@@ -14,5 +14,5 @@ Velociflashtor::Application.routes.draw do
   end
 
   resource :search, only: [:show]
-
+  resource :guess, only: [:show, :create]
 end
