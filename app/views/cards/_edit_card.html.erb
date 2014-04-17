@@ -1,10 +1,8 @@
-<div>
-  EDIT:
-  <%= form_for card, remote: true do |f| %>
-    <%= f.text_field :front %>
-    <%= f.text_area :back %>
-    <%= f.submit "Save Changes" %>
-  <% end %>
-</div>
+<div id="edit-heading">EDIT:</div>
+<%= form_for card, remote: true do |f| %>
+  <%= f.text_field :front %>
+  <%= f.text_area :back %>
+  <%= f.submit "Save Changes" %>
+<% end %>
 
 

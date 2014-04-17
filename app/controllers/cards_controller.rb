@@ -22,13 +22,12 @@ class CardsController < ApplicationController
   end
 
   def edit
-    @card = Card.find(params[:id])
+    @card = find_card
   end
 
   def update
-    @card = Card.find(params[:id])
+    @card = find_card
     @card.update(card_params)
-    render :update
   end
   private
 
@@ -42,6 +41,10 @@ class CardsController < ApplicationController
 
   def add_images?
     params[:commit] == 'Add Images'
+  end
+
+  def find_card
+    Card.find(params[:id])
   end
 
   def image_search_params
