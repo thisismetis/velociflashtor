@@ -16,4 +16,20 @@ class Deck < ActiveRecord::Base
   def tag_list=(tag_string)
     self.tags = Tag.from_tag_list(tag_string)
   end
+
+  def num_correct
+    cards.sum(:num_correct)
+  end
+  
+  def num_attempts
+    cards.sum(:num_attempts)
+  end
+
+  def num_guesses
+    cards.sum(:num_guesses)
+  end
+
+  def num_cards
+    cards.count
+  end
 end
