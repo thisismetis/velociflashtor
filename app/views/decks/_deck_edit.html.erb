@@ -1,0 +1,7 @@
+<%= form_for @deck, remote: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  Tags:
+  <%= f.text_field :tag_list %><br>
+  <%= f.submit "Save Changes" %>
+<% end %>

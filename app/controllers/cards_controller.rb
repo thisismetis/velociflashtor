@@ -21,6 +21,15 @@ class CardsController < ApplicationController
     @cards = @deck.cards.shuffle
   end
 
+  def edit
+    @card = Card.find(params[:id])
+  end
+
+  def update
+    @card = Card.find(params[:id])
+    @card.update(card_params)
+    render :update
+  end
   private
 
   def card_params
