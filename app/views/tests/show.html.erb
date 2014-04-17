@@ -3,6 +3,7 @@
 <div id='guess_container'>
   <%= render 'guesses/guess', card: @card, num_guesses: @num_guesses %>
 </div>
+
 <script>
   var index = 0;
   var card_ids = <%= @card_ids %>;

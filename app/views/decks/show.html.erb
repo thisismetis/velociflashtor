@@ -1,5 +1,19 @@
 <h2><%= @deck.name %>:</h2>
 
-<%= button_to "Test", deck_test_path(@deck), method: :get %>
-<%= button_to "Practice", deck_cards_path(@deck), method: :get %>
+<%= button_to "Quiz", deck_test_path(@deck), method: :get %>
+<%= button_to "Study", deck_cards_path(@deck), method: :get %>
 <%= button_to "Edit Deck", edit_deck_path(@deck), method: :get %>
+
+<h2><%= current_user.email %> Metrics:</h2>
+<ul>
+  <li>Correct: <%= current_user.num_correct %></li>
+  <li>Attempts: <%= current_user.num_attempts %></li>
+  <li>Guesses: <%= current_user.num_guesses %></li>
+</ul>
+
+<h2><%= @deck.cards.first.front %> Card Metrics:</h2>
+<ul>
+  <li>Correct: <%= @deck.cards.first.num_correct %></li>
+  <li>Attempts: <%=  @deck.cards.first.num_attempts %></li>
+  <li>Guesses: <%= @deck.cards.first.num_guesses %></li>
+</ul>
