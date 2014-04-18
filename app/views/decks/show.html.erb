@@ -11,9 +11,9 @@
   <li>Guesses: <%= current_user.num_guesses %></li>
 </ul>
 
-<h2><%= @deck.cards.first.front %> Card Metrics:</h2>
+<h2><%= @deck.name %> Metrics:</h2>
 <ul>
-  <li>Correct: <%= @deck.cards.first.num_correct %></li>
-  <li>Attempts: <%=  @deck.cards.first.num_attempts %></li>
-  <li>Guesses: <%= @deck.cards.first.num_guesses %></li>
+  <li>Correct: <%= @deck.num_correct %></li>
+  <li>Attempts: <%=  @deck.num_attempts %></li>
+  <li>Guesses: <%= @deck.num_guesses %></li>
 </ul>
