@@ -27,6 +27,10 @@ class DecksController < ApplicationController
     @deck.update(deck_params)
   end
 
+  def index
+    @decks = current_user.decks.all.reverse
+  end
+
   private
 
   def deck_params
@@ -36,4 +40,5 @@ class DecksController < ApplicationController
   def find_deck
     Deck.find(params[:id])
   end
+
 end

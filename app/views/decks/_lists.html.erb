@@ -1,0 +1,8 @@
+<ul>
+  <% decks.each do |deck| %>
+    <li> <%= link_to deck.name, deck %> </li>
+    <li> Tags: <% deck.tags.each do |tag| %>
+      <%= link_to "#{tag.name}", tag_path(tag) %>
+     <% end %> </li>
+  <% end %>
+</ul>
