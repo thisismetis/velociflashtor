@@ -14,6 +14,8 @@
 @import 'neat/neat';
 @import 'bitters/bitters';
 @import 'navigation';
+@import 'refills/hero';
+@import 'refills/footer';
 
 body {
   @include outer-container;

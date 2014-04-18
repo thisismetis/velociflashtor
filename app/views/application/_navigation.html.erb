@@ -1,13 +1,12 @@
 <header class="navigation">
   <div class="menu-wrapper">
-    <a href="javascript:void(0)" class="logo">
-      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
-    </a>
+    <%= link_to root_path, class: 'logo' do %>
+      <% image_tag "https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" %>
+    <% end %>
     <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
     <div class="nav">
       <ul id="navigation-menu">
-        <li><a href="javascript:void(0)">About Us</a></li> <!-- Change when page is created -->
-        <li><a href="javascript:void(0)">Contact</a></li> <!-- Change when page is created -->
+        <li><%= link_to "Popular Decks", decks_path %></li>
         <li class="navigation-search-bar">
           <div class="search-bar">
             <div class="search-and-submit">

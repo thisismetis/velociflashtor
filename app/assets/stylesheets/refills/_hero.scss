@@ -1,0 +1,36 @@
+.hero {
+  $medium-screen: 0;
+  $hero-background: lighten($base-border-color, 10);  
+
+  background-color: $hero-background;
+  padding-bottom: 4em;
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    padding: 1em;
+    margin: auto;
+
+    button {
+      @include button(simple, $base-accent-color);
+      font-size: $base-font-size;
+      outline: none;
+    }
+
+    .hero-copy {
+      @include media($medium-screen) {
+        @include span-columns(6);
+      }
+
+      h6 {
+        margin-bottom: 2em; 
+      }
+    }
+
+    .hero-image {
+      @include media($medium-screen) {
+        @include span-columns(6);
+      }
+    }
+  }
+}
