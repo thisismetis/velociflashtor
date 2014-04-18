@@ -3,7 +3,7 @@ class DecksController < ApplicationController
   def index
     @decks = Deck.take(5)
   end
-  
+
   def new
     @deck = Deck.new
   end
