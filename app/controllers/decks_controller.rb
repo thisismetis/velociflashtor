@@ -1,7 +1,6 @@
 class DecksController < ApplicationController
-
   def index
-    @decks = Deck.take(5)
+    @decks = current_user.decks.order(created_at: :desc)
   end
 
   def new
@@ -36,4 +35,5 @@ class DecksController < ApplicationController
   def find_deck
     Deck.find(params[:id])
   end
+
 end
