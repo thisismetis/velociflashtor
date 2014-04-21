@@ -5,7 +5,7 @@
       <div>
         Tags:
         <% deck.tags.each do |tag| %>
-          <%= link_to "#{tag.name}", tags_path(tag) %>
+          <%= link_to "#{tag.name}", tag_path(tag) %>
         <% end %>
       </div>
     <% end %>
