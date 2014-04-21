@@ -1,7 +1,6 @@
 class DecksController < ApplicationController
-
   def index
-    @decks = Deck.take(5)
+    @decks = current_user.decks.order(created_at: :desc)
   end
 
   def new
@@ -25,10 +24,6 @@ class DecksController < ApplicationController
   def update
     @deck = find_deck
     @deck.update(deck_params)
-  end
-
-  def index
-    @decks = current_user.decks.all.reverse
   end
 
   private
