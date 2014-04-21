@@ -1,14 +1,12 @@
 Edit Decks
 
-<div class="deck-edit">
-  <%= render "deck_edit" %>
+<%= render 'deck_edit', deck: @deck %>
+
+<div class="card-stack" id='card-stack'>
+  <%= render 'card_stack', deck: @deck, cards: @cards %>
 </div>
 
-<div class="card-stack">
-  <%= render "card_stack" %>
+<div class='edit-card'>
 </div>
 
-<div class="edit-card">
-</div>
-
-<%= button_to "Done Editing", @deck, method: :get %>
+<%= button_to 'Done Editing', @deck, method: :get %>

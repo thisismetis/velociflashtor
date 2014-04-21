@@ -1,6 +1,12 @@
 class DecksController < ApplicationController
+  respond_to :html
+
   def index
     @decks = current_user.decks.order(created_at: :desc)
+  end
+
+  def show
+    @deck = find_deck
   end
 
   def new
@@ -8,12 +14,16 @@ class DecksController < ApplicationController
   end
 
   def create
-    deck = current_user.decks.create(deck_params)
-    redirect_to new_deck_card_path(deck)
-  end
-
-  def show
-    @deck = find_deck
+    @deck = current_user.decks.new(deck_params)
+    respond_with @deck do |format|
+      if @deck.save
+        flash[:notice] = 'Deck created successfully'
+        format.html { redirect_to new_deck_card_path(@deck) }
+      else
+        flash[:notice] = @deck.errors.full_messages.first
+        format.html { render action: :new }
+      end
+    end
   end
 
   def edit
@@ -24,6 +34,12 @@ class DecksController < ApplicationController
   def update
     @deck = find_deck
     @deck.update(deck_params)
+  end
+
+  def destroy
+    deck = find_deck
+    deck.destroy
+    redirect_to root_path
   end
 
   private

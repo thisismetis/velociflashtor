@@ -1,2 +1,4 @@
-template="<%=j render "cards/card_change", card: @card %>";
+template = "<%=j render "cards/card_change", card: @card %>";
 $(".edit-card").html(template);
+updated_card = '<%=j link_to @card.front, edit_card_path(@card), remote: true %>';
+$('#<%=j dom_id(@card) %>').html(updated_card);

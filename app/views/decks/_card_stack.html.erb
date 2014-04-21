@@ -1,10 +1,10 @@
-<div class="scroll-selection">
-  <% @cards.each_with_index do |card, index| %>
-    <%= div_for card, data: { index: index } do %>
-      <div class="front">
-        <p> <%= link_to "#{card.front}", edit_card_path(card), remote: true %></p>
-      </div>
+<div class='scroll-selection'>
+  <%= button_to 'Add New Card', new_deck_card_path(deck), method: :get %>
+  <ul>
+    <% cards.each_with_index do |card, index| %>
+      <%= div_for card, data: { index: index } do %>
+        <%= render 'card_link', card: card %>
+      <% end %>
     <% end %>
-  <% end %>
+  </ul>
 </div>
-
