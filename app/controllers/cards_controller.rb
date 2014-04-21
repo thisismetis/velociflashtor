@@ -9,9 +9,12 @@ class CardsController < ApplicationController
   def create
     @deck = find_deck
     @card = @deck.cards.new(card_params)
-    add_images_to_form
-    persist_new_card
-    @location = next_location_for(@deck)
+    if add_images?
+      add_images_to_form
+    else
+      persist_new_card
+      @location = next_location_for(@deck)
+    end
   end
 
   def index
@@ -39,37 +42,30 @@ class CardsController < ApplicationController
     params.require(:card).permit(:front, :back, :image_url)
   end
 
+  def add_images?
+    params[:add_images]
+  end
+
   def add_images_to_form
-    if add_images?
-      if valid_image_search?
-        @images = GoogleSearch.new(@card.front).images
-        render 'cards/add_images'
-      else
-        flash[:notice] = 'Front cannot be empty'
-      end
+    image_search = GoogleSearch.new(@card.front)
+    if image_search.valid?
+      @images = image_search.images
+      render 'cards/add_images'
+    else
+      render 'errors/empty_front'
     end
   end
 
-  def add_images?
-    params[:commit] == 'Add Images'
-  end
-
-  def valid_image_search?
-    @card.front != ''
-  end
-
   def persist_new_card
-    if !finished?
-      if @card.save
-        flash[:notice] = 'Card Created Successfully'
-      else
-        flash[:notice] = 'Invalid Inputs'
-      end
+    if @card.save
+      flash[:notice] = 'Card Created Successfully'
+    else
+      flash[:notice] = 'Invalid Inputs'
     end
   end
 
   def finished?
-    params[:commit] == 'Finished'
+    params[:finished]
   end
 
   def find_card
