@@ -14,6 +14,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 # gem 'refills'
+gem 'twitter-typeahead-rails'
 
 group :doc do
   gem 'sdoc', require: false

@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require flip_card_functionality
+//= require twitter/typeahead
+//= require_tree .
