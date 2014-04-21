@@ -2,5 +2,8 @@
 <%= form_for card, remote: true do |f| %>
   <%= f.text_field :front %>
   <%= f.text_area :back %>
+  <%= image_tag card.image_url %>
+  <%= f.text_field :image_url %>
   <%= f.submit "Save Changes" %>
 <% end %>
+<%= button_to 'Delete Card', card_path(card), method: :delete, remote: true %>

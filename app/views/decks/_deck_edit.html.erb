@@ -1,7 +1,10 @@
-<%= form_for @deck, remote: true do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  Tags:
-  <%= f.text_field :tag_list %><br>
-  <%= f.submit "Save Changes" %>
-<% end %>
+<div class="deck-edit">
+  <%= form_for deck, remote: true do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    Tags:
+    <%= f.text_field :tag_list %><br>
+    <%= f.submit "Save Changes" %>
+  <% end %>
+  <%= button_to "Delete Deck", deck_path(deck), method: :delete %>
+</div>
