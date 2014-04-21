@@ -17,7 +17,7 @@ class DecksController < ApplicationController
     @deck = current_user.decks.new(deck_params)
     respond_with @deck do |format|
       if @deck.save
-        flash[:notice] = "Deck created successfully"
+        flash[:notice] = 'Deck created successfully'
         format.html { redirect_to new_deck_card_path(@deck) }
       else
         flash[:notice] = @deck.errors.full_messages.first
