@@ -56,10 +56,6 @@ class CardsController < ApplicationController
     end
   end
 
-  def valid_image_search?
-    @card.front != ''
-  end
-
   def persist_new_card
     if @card.save
       flash[:notice] = 'Card Created Successfully'
