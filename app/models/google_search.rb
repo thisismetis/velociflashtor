@@ -7,17 +7,17 @@ class GoogleSearch
   end
 
   def images
-    if valid?
+    if valid_query?
       google_search = Google::Search::Image.new(query: @query)
       results = google_search.response
       images = results.map(&:uri)
       images.take(num)
     else
-      errors.add(:front, 'front cannot empty')
+      errors.add(:front, 'front cannot be empty')
     end
   end
 
-  def valid?
+  def valid_query?
     query != ''
   end
 
