@@ -7,8 +7,8 @@ Velociflashtor::Application.routes.draw do
   root 'homes#show'
 
   resource :dashboards, only: [:show]
-  resource :tags, only: [:show]
 
+  resources :tags, only: [:show]
   resources :cards, only: [:edit, :update, :destroy]
   resources :decks do
     resources :cards
