@@ -3,10 +3,10 @@
   <%= f.text_field :front, placeholder: "Front" %> <br>
   <%= f.text_area :back, placeholder: "Back" %> <br>
   <%= div_for @card, "add_images"  do %>
-    <%= f.submit "Add Images" %>
+    <%= f.submit "Add Images", name: 'add_images' %>
   <% end %>
   <%= div_for @card, "submit"  do %>
-    <%= f.submit "Add Next Card", data: { finished: false }  %>
-    <%= f.submit "Finished", data: { finished: true }  %>
+    <%= f.submit "Add Next Card", name: 'add_card', data: { finished: false }  %>
+    <%= f.submit "Finished", name: 'finished', data: { finished: true }  %>
   <% end %>
 <% end %>
