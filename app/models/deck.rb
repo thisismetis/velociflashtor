@@ -5,7 +5,7 @@ class Deck < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
-  validates :name, presence: true, 
+  validates :name, presence: true,
     uniqueness: { scope: :user, message: 'must be unique' }
 
   def self.shuffle
