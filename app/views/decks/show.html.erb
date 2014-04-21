@@ -4,16 +4,9 @@
 <%= button_to "Study", deck_cards_path(@deck), method: :get %>
 <%= button_to "Edit Deck", edit_deck_path(@deck), method: :get %>
 
-<h2><%= current_user.email %> Metrics:</h2>
-<ul>
-  <li>Correct: <%= current_user.num_correct %></li>
-  <li>Attempts: <%= current_user.num_attempts %></li>
-  <li>Guesses: <%= current_user.num_guesses %></li>
-</ul>
-
 <h2><%= @deck.name %> Metrics:</h2>
 <ul>
-  <li>Correct: <%= @deck.num_correct %></li>
-  <li>Attempts: <%=  @deck.num_attempts %></li>
-  <li>Guesses: <%= @deck.num_guesses %></li>
+  <% @deck.cards.each do |card| %>
+    <li><%= render 'cards/card_stats', card: card %></li>
+  <% end %>
 </ul>
