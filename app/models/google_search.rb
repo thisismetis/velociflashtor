@@ -14,7 +14,6 @@ class GoogleSearch
       images.take(num)
     else
       errors.add(:front, 'front cannot empty')
-      false
     end
   end
 
