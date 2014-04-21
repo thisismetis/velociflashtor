@@ -1,7 +1,18 @@
 <p>Your search for <%= @query %> returned the following results:</p>
 
 <div>
+  <h3>Decks:</h3>
   <% @decks.each do |deck| %>
     <%= link_to deck.name, deck %>
+  <% end %>
+</div>
+
+<div>
+  <h3>Cards:</h3>
+  <% @cards.each do |card| %>
+    <%= link_to card.deck do %>
+      <%= image_tag card.image_url, size: '50x50' %>
+    <% end %>
+    in deck <%= card.deck.name %> created by <%= card.deck.user.email %>
   <% end %>
 </div>
