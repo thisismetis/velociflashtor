@@ -15,6 +15,7 @@ gem 'neat'
 gem 'bitters'
 # gem 'refills'
 gem 'twitter-typeahead-rails'
+gem 'high_voltage'
 
 group :doc do
   gem 'sdoc', require: false
