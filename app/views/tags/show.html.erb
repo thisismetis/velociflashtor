@@ -1,7 +1,7 @@
 <h2> Your Decks with the tag: <%= @tag.name.capitalize %> </h2>
 
 <ul>
-  <% @tag.decks.each do |deck| %>
+  <% @decks.each do |deck| %>
     <li> <%= link_to deck.name, deck %> </li>
   <% end %>
 </ul>
