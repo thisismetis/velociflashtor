@@ -3,18 +3,13 @@ class CardsController < ApplicationController
 
   def new
     @deck = find_deck
-    @card = @deck.cards.new
+    @image_search = ImageSearch.new
   end
 
   def create
-    @deck = find_deck
-    @card = @deck.cards.new(card_params)
-    if add_images?
-      add_images_to_form
-    else
-      persist_new_card
-      @location = next_location_for(@deck)
-    end
+    deck = find_deck
+    deck.cards.create(card_params)
+    @location = next_location_for(deck)
   end
 
   def index
@@ -44,28 +39,6 @@ class CardsController < ApplicationController
 
   def add_images?
     params[:add_images]
-  end
-
-  def add_images_to_form
-    image_search = GoogleSearch.new(@card.front)
-    if image_search.valid?
-      @images = image_search.images
-      render 'cards/add_images'
-    else
-      render 'errors/empty_front'
-    end
-  end
-
-  def persist_new_card
-    if @card.save
-      flash[:notice] = 'Card Created Successfully'
-    else
-      flash[:notice] = 'Invalid Inputs'
-    end
-  end
-
-  def finished?
-    params[:finished]
   end
 
   def find_card

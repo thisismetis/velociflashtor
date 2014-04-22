@@ -1,0 +1,5 @@
+<%= form_for :guess, url: results_path, method: :get, remote: true do |f| %>
+  <%= f.hidden_field :deck_id %>
+  <%= f.hidden_field :guess_bank %>
+  <%= f.submit 'Finished' %>
+<% end %>
