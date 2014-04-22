@@ -8,7 +8,9 @@ Velociflashtor::Application.routes.draw do
 
   resource :dashboards, only: [:show]
   resource :tags, only: [:show]
-  resources :cards, only: [:edit, :update]
+  resources :cards, only: [:edit, :update] do
+    resources :guess_checkers, only: [:create]
+  end
   resources :results, only: [:show, :index]
   
   resources :decks do
@@ -17,6 +19,6 @@ Velociflashtor::Application.routes.draw do
   end
 
   resource :search, only: [:show]
-  resource :guess, only: [:show, :create]
+  resource :guess, only: [:show, :create, :new]
 
 end

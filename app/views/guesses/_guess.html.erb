@@ -1,11 +1,7 @@
 <%= render card %>
 <%= content_tag :div, nil, id: 'card_answer' %>
   <%= content_tag(:div, id: 'guess_field') do %>
-    <%= form_for :guess, url: guess_url, html: { id: 'guess_submission' }, method: :get, remote: true do |f| %>
+    <%= form_for :guess, url: card_guess_checkers_path(card), html: { id: 'guess_submission' }, method: :post, remote: true do |f| %>
     <%= f.text_field :guess, placeholder: "Enter Guess" %>
-    <%= f.hidden_field :num_guesses, value: num_guesses %>
-    <%= f.hidden_field :current_card, value: card.id %>
-    <%= f.hidden_field :last_card, value: last_card %>
-    <%= f.hidden_field :next_card %>
   <% end %>
 <% end %>

@@ -3,11 +3,13 @@
 <h2><%= @deck.name %>:</h2>
 
 <div id='guess_container'>
-  <%= render 'guesses/guess', card: @card, num_guesses: @num_guesses, last_card: @card_last_id %>
+  <%= render 'guesses/guess', card: @card %>
 </div>
 
 <script>
   var index = 0;
+  var num_guesses = 0;
+  var max_guesses = 3;
   var card_ids = <%= @card_ids %>;
   var deck_id = <%= @deck.id %>;
   var last_card_id = <%= @card_last_id %>;
@@ -17,6 +19,7 @@
     $(document).on('submit', '#guess_submission', function() {
       var guess_value = $('#guess_guess').val();
       guess_bank.push(guess_value);
+      num_guesses += 1;
     });
   });
 </script>

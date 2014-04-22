@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def find_deck
     Deck.find(params[:deck_id])
   end
+
+  def find_card
+    Card.find(params[:card_id])
+  end
 end

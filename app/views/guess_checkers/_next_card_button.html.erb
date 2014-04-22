@@ -1,0 +1,4 @@
+<%= form_for :guess, url: new_guess_path, method: :get, remote: true do |f| %>
+  <%= f.hidden_field :next_card %>
+  <%= f.submit 'Next Card' %>
+<% end %>
