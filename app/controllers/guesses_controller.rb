@@ -10,6 +10,7 @@ class GuessesController < ApplicationController
 
   def create
     current_card = find_current_card
+    @last_card = params[:guess][:last_card]
     GuessChecker.new(user:current_user, card: current_card).update_attempts
     @card = find_next_card
   end
@@ -30,6 +31,7 @@ class GuessesController < ApplicationController
     if card_id == ''
       deck_id = params[:guess][:deck_id]
       @deck = Deck.find(deck_id)
+      @guess_bank = params[:guess][:guess_bank]
       render :end_of_deck
     else
       Card.find(card_id)
@@ -40,7 +42,14 @@ class GuessesController < ApplicationController
     params[:guess][:num_guesses]
   end
 
+  def last_card?
+    last_card = params[:guess][:last_card]
+    current_card = params[:guess][:current_card]
+    last_card == current_card
+  end
+
   def guess_location(guess_result, num_guesses_made, max_guesses = 3)
+    @last_card = last_card?
     if guess_result
       render :correct_guess
     elsif num_guesses_made == max_guesses

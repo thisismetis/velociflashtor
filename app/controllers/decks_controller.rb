@@ -14,10 +14,6 @@ class DecksController < ApplicationController
 
   def show
     @deck = find_deck
-  end
-
-  def edit
-    @deck = find_deck
     @cards = @deck.cards
   end
 
