@@ -1,12 +1,10 @@
 New Card
-<%= form_for [@deck, @card], remote: true do |f| %>
-  <%= f.text_field :front, placeholder: "Front" %> <br>
-  <%= f.text_area :back, placeholder: "Back" %> <br>
-  <%= div_for @card, "add_images"  do %>
-    <%= f.submit "Add Images" %>
+<div id='card_form'>
+  <%= form_for [@deck, @image_search], remote: true do |f| %>
+    <%= f.text_field :front, placeholder: "Front" %> <br>
+    <%= f.text_area :back, placeholder: "Back" %> <br>
+    <div id = 'add_images'>
+      <%= f.submit "Add Images" %>
+    </div>
   <% end %>
-  <%= div_for @card, "submit"  do %>
-    <%= f.submit "Add Next Card", data: { finished: false }  %>
-    <%= f.submit "Finished", data: { finished: true }  %>
-  <% end %>
-<% end %>
+</div>

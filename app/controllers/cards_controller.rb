@@ -1,19 +1,13 @@
 class CardsController < ApplicationController
   def new
     @deck = find_deck
-    @card = @deck.cards.new
+    @image_search = ImageSearch.new
   end
 
   def create
-
-    if add_images?
-      @images = GoogleSearch.new(image_search_params).images
-      render :new
-    else
-      deck = find_deck
-      deck.cards.create(card_params)
-      @location = next_location_for(deck)
-    end
+    deck = find_deck
+    deck.cards.create(card_params)
+    @location = next_location_for(deck)
   end
 
   def index
@@ -39,16 +33,8 @@ class CardsController < ApplicationController
     params[:commit] == 'Finished'
   end
 
-  def add_images?
-    params[:commit] == 'Add Images'
-  end
-
   def find_card
     Card.find(params[:id])
-  end
-
-  def image_search_params
-    params[:card][:front]
   end
 
   def next_location_for(deck)

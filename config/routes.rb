@@ -12,10 +12,11 @@ Velociflashtor::Application.routes.draw do
     resources :guess_checkers, only: [:create]
   end
   resources :results, only: [:show, :index]
-  
+
   resources :decks do
     resources :cards, only: [:new, :create, :index]
     resource :test, only: [:show]
+    resources :image_searches, only: [:create]
   end
 
   resource :search, only: [:show]
