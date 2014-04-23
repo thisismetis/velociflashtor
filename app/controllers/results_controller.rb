@@ -8,6 +8,7 @@ class ResultsController < ApplicationController
   def show
     @guess_bank = params[:guess_bank]
     @deck = Deck.find(params[:id])
+    @like = Like.find_by(deck: @deck)
   end
 
   private
