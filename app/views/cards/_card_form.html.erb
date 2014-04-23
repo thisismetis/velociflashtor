@@ -1,8 +1,8 @@
 <%= form_for [deck, card], remote: true do |f| %>
   <%= f.text_field :front, placeholder: "Front" %>
   <%= f.text_area :back, placeholder: "Back" %>
-  <% images.each_with_index do |image, i| %>
-    <%= content_tag(:div, image_tag(image, size: "75x75"), class: "image_#{i}") %>
+  <% images.each_with_index do |image, index| %>
+    <%= content_tag(:div, image_tag(image, size: "75x75"), class: "image_#{index}") %>
     <%= radio_button("card", :image_url, image) %>
   <% end %>
   <div>

@@ -2,7 +2,7 @@
   $('#card_answer').html('You are correct! The answer was <%= @card.back %>.');
   num_guesses = 0;
 
-  if (card_ids[index] == last_card_id) {
+  if (card_ids[index] === last_card_id) {
     $('#guess_field').html('<%=j render 'finished_button' %>');
     process_finished_button(deck_id, guess_bank);
   }
@@ -13,11 +13,11 @@
 
 <% else %>
 
-  if (num_guesses == max_guesses) {
+  if (num_guesses === max_guesses) {
     $('#card_answer').html('Sorry, out of guesses! The answer was <%= @card.back %>.');
     num_guesses = 0;
 
-    if (card_ids[index] == last_card_id) {
+    if (card_ids[index] === last_card_id) {
       $('#guess_field').html('<%=j render 'finished_button' %>');
       process_finished_button(deck_id, guess_bank);
     }

@@ -2,8 +2,8 @@ class ImageSearch
   include ActiveModel::Model
 
   def initialize(opts = {})
-   @front = opts[:front]
-   @back = opts[:back]
+    @front = opts[:front]
+    @back = opts[:back]
   end
 
   private
