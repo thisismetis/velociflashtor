@@ -17,7 +17,10 @@ Velociflashtor::Application.routes.draw do
     resources :cards
     resource :test, only: [:show]
     resources :image_searches, only: [:create]
+    resources :likes, only: [:create]
   end
+
+  resources :likes, only: [:destroy]
 
   resource :search, only: [:show]
   resource :guess, only: [:show, :create, :new]

@@ -4,6 +4,7 @@ class Deck < ActiveRecord::Base
   has_many :cards, dependent: :destroy
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :likes, dependent: :destroy
 
   validates :name, presence: true,
     uniqueness: { scope: :user, message: 'must be unique' }

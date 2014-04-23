@@ -4,4 +4,13 @@
   <li>Attempts: <%=  @deck.num_attempts %></li>
   <li>Guesses: <%= @deck.num_guesses %></li>
 </ul>
+
+<div id="recommend">
+  <% if current_user.recommends?(@deck) %>
+    <%= button_to "Unrecommend This Deck", @like, remote: true, method: :delete %>
+  <% else %>
+    <%= button_to "Recommend This Deck", deck_likes_path(@deck), remote: true %>
+  <% end %>
+</div>
+
 <%= @guess_bank %>
