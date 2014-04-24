@@ -1,13 +1,15 @@
 <h2><%= deck.name %> Metrics:</h2>
 <%= link_to 'Back to Deck', deck %>
 
-<div id="recommend">
-  <% if current_user.recommends?(@deck) %>
-    <%= button_to "Unrecommend This Deck", @recommend, remote: true, method: :delete %>
-  <% else %>
-    <%= button_to "Recommend This Deck", deck_recommends_path(@deck), remote: true %>
-  <% end %>
-</div>
+<% if signed_in? %>
+  <div id="recommend">
+    <% if current_user.recommends?(@deck) %>
+      <%= button_to "Unrecommend This Deck", @recommend, remote: true, method: :delete %>
+    <% else %>
+      <%= button_to "Recommend This Deck", deck_recommends_path(@deck), remote: true %>
+    <% end %>
+  </div>
+<% end %>
 
 <ul>
   <% results.each do |result| %>
