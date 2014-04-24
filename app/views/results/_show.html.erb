@@ -1,8 +1,9 @@
 <h2><%= deck.name %> Metrics:</h2>
-<%= link_to 'Back to Deck', deck_path(deck) %>
+<%= link_to 'Back to Deck', deck %>
 <ul>
   <% results.each do |result| %>
-    <li><%= image_tag result.card.image_url, size: '50x50' %>
+    <li>
+      <%= image_tag result.card.image_url, size: '50x50' %>
       <div>
         Correct Answer: <%= result.card.back %>
       </div>
@@ -13,5 +14,3 @@
     </li>
   <% end %>
 </ul>
-
-

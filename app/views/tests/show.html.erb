@@ -24,15 +24,14 @@
         type: "GET",
         url: '<%=j results_url %>',
         data: data
-      })
+      });
     });
   });
 
   function append_guess(guess_bank, card_id, guess) {
     if (guess_bank[card_id] == null) {
       guess_bank[card_id] = [guess];
-    }
-    else {
+    } else {
       guess_bank[card_id].push(guess);
     }
   };
