@@ -1,7 +1,9 @@
-<h2><%= @deck.name %>:</h2>
+<div id='content_container'>
+  <h2><%= @deck.name %>:</h2>
 
-<div id='guess_container'>
-  <%= render 'guesses/guess', card: @card %>
+  <div id='guess_container'>
+    <%= render 'guesses/guess', card: @card %>
+  </div>
 </div>
 
 <script>
@@ -11,12 +13,34 @@
   var card_ids = <%= @card_ids %>;
   var deck_id = <%= @deck.id %>;
   var last_card_id = <%= @card_last_id %>;
-  var guess_bank = [];
+  var guess_bank = {};
+
+  $(document).ready(function() {
+    $(document).on('click', '#finished_button', function() {
+      data = {};
+      data['deck_id'] = deck_id;
+      data['guess_bank'] = guess_bank;
+      $.ajax({
+        type: "GET",
+        url: '<%=j results_url %>',
+        data: data
+      });
+    });
+  });
+
+  function append_guess(guess_bank, card_id, guess) {
+    if (guess_bank[card_id] == null) {
+      guess_bank[card_id] = [guess];
+    } else {
+      guess_bank[card_id].push(guess);
+    }
+  };
 
   $( document ).ready(function() {
     $(document).on('submit', '#guess_submission', function() {
       var guess_value = $('#guess_guess').val();
-      guess_bank.push(guess_value);
+      var card_id = card_ids[index];
+      append_guess(guess_bank, card_id, guess_value);
       num_guesses += 1;
     });
   });

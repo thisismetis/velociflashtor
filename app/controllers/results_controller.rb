@@ -1,23 +1,19 @@
 class ResultsController < ApplicationController
-
-  def index
-    @deck = find_deck
-    @guess_bank = guess_bank
-  end
+  respond_to :json
 
   def show
-    @guess_bank = params[:guess_bank]
-    @deck = Deck.find(params[:id])
+    @deck = find_deck
     @like = Like.find_by(deck: @deck)
+    @results = guess_bank.map do |card_id, guesses|
+      card = Card.find(card_id)
+      result = Result.new(card, guesses)
+    end
   end
 
   private
 
-  def find_deck
-    Deck.find(params[:guess][:deck_id])
+  def guess_bank
+    params[:guess_bank]
   end
 
-  def guess_bank
-    params[:guess][:guess_bank]
-  end
 end

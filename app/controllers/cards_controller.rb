@@ -37,12 +37,12 @@ class CardsController < ApplicationController
     params.require(:card).permit(:front, :back, :image_url)
   end
 
-  def add_images?
-    params[:add_images]
-  end
-
   def find_card
     Card.find(params[:id])
+  end
+
+  def finished?
+    params[:commit] == 'Finished'
   end
 
   def next_location_for(deck)
