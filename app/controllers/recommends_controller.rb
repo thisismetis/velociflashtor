@@ -7,7 +7,7 @@ class RecommendsController < ApplicationController
 
   def destroy
     recommend = Recommend.find(params[:id])
-    @deck = Recommend.deck
+    @deck = recommend.deck
     current_user.unrecommend(@deck)
   end
 end
