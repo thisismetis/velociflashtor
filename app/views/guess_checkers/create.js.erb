@@ -4,7 +4,6 @@
 
   if (card_ids[index] === last_card_id) {
     $('#guess_field').html('<%=j render 'finished_button' %>');
-    process_finished_button(deck_id, guess_bank);
   }
   else {
     $('#guess_field').html('<%=j render 'next_card_button' %>');
@@ -19,7 +18,6 @@
 
     if (card_ids[index] === last_card_id) {
       $('#guess_field').html('<%=j render 'finished_button' %>');
-      process_finished_button(deck_id, guess_bank);
     }
     else {
       $('#guess_field').html('<%=j render 'next_card_button' %>');
@@ -36,9 +34,4 @@
 function process_next_button(index) {
   $('#guess_next_card').prop('value', card_ids[index + 1]);
   return index += 1;
-}
-
-function process_finished_button(deck_id, guess_bank) {
-  $('#guess_deck_id').prop('value', deck_id);
-  $('#guess_guess_bank').prop('value', guess_bank);
 }
