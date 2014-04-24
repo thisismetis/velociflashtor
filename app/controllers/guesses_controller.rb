@@ -1,6 +1,7 @@
 class GuessesController < ApplicationController
   def new
     @card = find_next_card
+    @card.increment!(:num_attempts)
   end
 
   private

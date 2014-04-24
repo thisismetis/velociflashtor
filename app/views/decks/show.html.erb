@@ -4,7 +4,7 @@
 <%= button_to "Study", deck_cards_path(@deck), method: :get %>
 <%= button_to "Edit Deck", edit_deck_path(@deck), method: :get %>
 
-<h2><%= @deck.name %> Metrics:</h2>
+<h2>Metrics:</h2>
 <ul>
   <% @deck.cards.each do |card| %>
     <li><%= render 'cards/card_stats', card: card %></li>

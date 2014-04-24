@@ -2,8 +2,8 @@ class ResultsController < ApplicationController
   respond_to :json
 
   def show
-    @like = Like.find_by(deck: @deck)
     @deck = find_deck
+    @like = Like.find_by(deck: @deck)
     @results = []
     guess_bank.each do |card_id, guesses|
       card = Card.find(card_id)
