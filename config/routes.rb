@@ -11,7 +11,7 @@ Velociflashtor::Application.routes.draw do
   resources :cards, only: [:edit, :update, :destroy] do
     resources :guess_checkers, only: [:create]
   end
-  resources :results, only: [:show, :index]
+  resource :results, only: [:show]
 
   resources :decks do
     resources :cards

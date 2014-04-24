@@ -1,0 +1,17 @@
+<h2><%= deck.name %> Metrics:</h2>
+<%= link_to 'Back to Deck', deck_path(deck) %>
+<ul>
+  <% results.each do |result| %>
+    <li><%= image_tag result.card.image_url, size: '50x50' %>
+      <div>
+        Correct Answer: <%= result.card.back %>
+      </div>
+      Your Guesses: 
+      <% result.guesses.each do |guess| %>
+        <%= guess %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+

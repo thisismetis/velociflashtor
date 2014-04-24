@@ -1,7 +1,9 @@
-<h2><%= @deck.name %>:</h2>
+<div id='content_container'>
+  <h2><%= @deck.name %>:</h2>
 
-<div id='guess_container'>
-  <%= render 'guesses/guess', card: @card %>
+  <div id='guess_container'>
+    <%= render 'guesses/guess', card: @card %>
+  </div>
 </div>
 
 <script>
@@ -17,7 +19,6 @@
     $(document).on('click', '#finished_button', function() {
       data = {};
       data['deck_id'] = deck_id;
-      data['card_ids'] = card_ids;
       data['guess_bank'] = guess_bank;
       $.ajax({
         type: "GET",

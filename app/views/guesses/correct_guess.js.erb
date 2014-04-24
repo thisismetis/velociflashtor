@@ -1,7 +1,0 @@
-$('#card_answer').html('You are correct! The answer was <%= @card.back %>.');
-<% if @last_card %>
-  $('#guess_field').html('<%=j render 'finished_button' %>');
-<% else %>
-  $('#guess_field').html('<%=j render 'next_card_button' %>');
-<% end %>
-index = process_next_card(index)
