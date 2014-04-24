@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def owns?(object)
-    signed_in? && current_user.id == object.id
+    signed_in? && current_user.id == object.user.id
   end
   helper_method :owns?
 
