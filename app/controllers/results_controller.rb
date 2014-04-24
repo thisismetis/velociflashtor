@@ -15,7 +15,7 @@ class ResultsController < ApplicationController
   private
 
   def guess_bank
-    guess_hash = params[:guess_bank].dup
+    guess_hash = params[:guess_bank]
     guess_hash.inject({}) { |h, (k, v)| h[k.to_i] = v; h }
   end
 
