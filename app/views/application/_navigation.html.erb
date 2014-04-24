@@ -1,7 +1,7 @@
 <header class="navigation">
   <div class="menu-wrapper">
     <%= link_to root_path, class: 'logo' do %>
-      <% image_tag "https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" %>
+      <% image_tag 'velociraptor.png' %>
     <% end %>
     <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
     <div class="nav">
@@ -13,7 +13,7 @@
               <%= form_for(:search, url: search_path, method: :get) do |form| %>
                 <%= form.text_field :query, class: 'typeahead', placeholder: "Search Here" %>
                 <button type="submit">
-                  <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png">
+                  <%= image_tag 'search-icon.png' %>
                 </button>
               <% end %>
             </div>
