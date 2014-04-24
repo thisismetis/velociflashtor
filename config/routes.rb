@@ -12,7 +12,7 @@ Velociflashtor::Application.routes.draw do
   resource :guess, only: [:show, :create, :new]
 
   resources :tags, only: [:show]
-  resources :likes, only: [:destroy]
+  resources :recommends, only: [:destroy]
   resources :cards, only: [:edit, :update, :destroy] do
     resources :guess_checkers, only: [:create]
   end
@@ -21,6 +21,6 @@ Velociflashtor::Application.routes.draw do
     resources :cards
     resource :test, only: [:show]
     resources :image_searches, only: [:create]
-    resources :likes, only: [:create]
+    resources :recommends, only: [:create]
   end
 end
