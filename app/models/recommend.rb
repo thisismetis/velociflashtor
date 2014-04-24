@@ -1,4 +1,4 @@
-class Like < ActiveRecord::Base
+class Recommend < ActiveRecord::Base
   belongs_to :user
   belongs_to :deck, counter_cache: true
 
