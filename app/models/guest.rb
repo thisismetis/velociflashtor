@@ -5,5 +5,6 @@ class Guest
   def owns?(object)
     false
   end
+
 end
 
