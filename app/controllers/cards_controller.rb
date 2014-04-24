@@ -15,6 +15,10 @@ class CardsController < ApplicationController
   def index
     @deck = find_deck
     @cards = @deck.cards.shuffle
+    if @cards.empty?
+      flash[:notice] = 'Deck is empty! Add Cards before studying'
+      redirect_to @deck
+    end
   end
 
   def edit

@@ -1,8 +1,9 @@
 class DecksController < ApplicationController
+  before_filter :authorize, except: [:index, :show]
   respond_to :html
 
   def index
-    @decks = current_user.decks.order(created_at: :desc)
+    @decks = Deck.order(created_at: :desc).first(5)
   end
 
   def show

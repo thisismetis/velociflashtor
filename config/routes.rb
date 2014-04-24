@@ -7,11 +7,15 @@ Velociflashtor::Application.routes.draw do
   root 'homes#show'
 
   resource :dashboards, only: [:show]
-  resource :tags, only: [:show]
+  resource :results, only: [:show]
+  resource :search, only: [:show]
+  resource :guess, only: [:show, :create, :new]
+
+  resources :tags, only: [:show]
+  resources :likes, only: [:destroy]
   resources :cards, only: [:edit, :update, :destroy] do
     resources :guess_checkers, only: [:create]
   end
-  resource :results, only: [:show]
 
   resources :decks do
     resources :cards
@@ -19,10 +23,4 @@ Velociflashtor::Application.routes.draw do
     resources :image_searches, only: [:create]
     resources :likes, only: [:create]
   end
-
-  resources :likes, only: [:destroy]
-
-  resource :search, only: [:show]
-  resource :guess, only: [:show, :create, :new]
-
 end

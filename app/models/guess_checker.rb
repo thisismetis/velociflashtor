@@ -3,7 +3,7 @@ class GuessChecker
 
   def initialize(opts={})
     @card = opts[:card]
-    @user = opts[:user]
+    @user = opts[:user] || Guest.new
   end
 
   def correct_guess?(guess)

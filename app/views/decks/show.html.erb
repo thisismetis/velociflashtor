@@ -2,7 +2,9 @@
 
 <%= button_to "Quiz", deck_test_path(@deck), method: :get %>
 <%= button_to "Study", deck_cards_path(@deck), method: :get %>
-<%= button_to "Edit Deck", edit_deck_path(@deck), method: :get %>
+<% if owns?(@deck) %>
+  <%= button_to "Edit Deck", edit_deck_path(@deck), method: :get %>
+<% end %>
 
 <h2>Metrics:</h2>
 <ul>
