@@ -16,4 +16,5 @@ class User < ActiveRecord::Base
   def recommends?(deck)
     recommends.exists?(deck: deck)
   end
+
 end
