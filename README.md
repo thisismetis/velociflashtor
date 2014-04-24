@@ -16,3 +16,4 @@ VelociFlashtor uses Google Image Search to help users quickly create, review and
 
 * Step 5: Try Out Other Popular Decks!
 
+Get started at [VelociFlashtor](http://velociflashtor.herokuapp.com)
