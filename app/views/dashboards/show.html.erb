@@ -1,17 +1,17 @@
-<div class ='your-decks'>
-  <h2> Your Decks </h2>
-  <%= button_to 'Create New Deck', new_deck_path, method: :get %>
-  <%= render 'decks/your_decks' %>
-  <%= button_to 'View More', decks_path, method: :get %>
-</div>
+<div class='content-body'>
+  <div class ='your-decks'>
+    <h2> Your Decks </h2>
+    <%= button_to 'Create New Deck', new_deck_path, method: :get %>
+    <%= render 'decks/your_decks' %>
+    <%= button_to 'View More', decks_path, method: :get %>
+  </div>
 
-<div class ='popular-deck'><h2> Most Popular </h2></div>
-
-<div class ='highest-rated'>
-  <h2> Most Recommended </h2>
-  <ul>
-    <% @most_recommended.each do |target| %>
-      <li><%= link_to "#{target.name}", target %></li>
-    <% end %>
-  </ul>
+  <div class ='highest-rated'>
+    <h2> Most Recommended </h2>
+    <ul>
+      <% @most_recommended.each do |target| %>
+        <li><%= link_to "#{target.name}", target %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>

@@ -20,3 +20,19 @@
 body {
   @include outer-container;
 }
+
+.content-body {
+  @include outer-container;
+
+  .highest-rated {
+    @include span-columns(6);
+    top: -140px;
+    left: 25%;
+  }
+
+  .your-decks {
+    @include span-columns(6);
+    top: 20px;
+    right: -30px;
+  }
+}
